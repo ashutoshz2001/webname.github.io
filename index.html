@@ -1,0 +1,58 @@
+<?php
+include("connection.php");
+?>
+<html>
+<head>
+
+<link rel="stylesheet" href="account.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+body{
+background-color:lightblue;
+}
+</style>
+</head>
+<body>
+
+<div class="create">
+<h2 align="center" class="re">Create an Account</h2>
+
+<hr color="blue">
+<form   method="GET">
+<font size="5" color="darkred">&nbsp username :</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user" aria-hidden="true"></i><input type="text" name="username" required>
+<br><br>
+<font size="5" color="darkred">&nbsp create password :</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-key" aria-hidden="true"></i><input type="password" name="password" required>
+<br><br>
+<font size="5" color="darkred">&nbsp confirm password  :</font>&nbsp;<i class="fa fa-key" aria-hidden="true"></i><input type="password" name="confpw" required>
+<br><br>
+<font size="5" color="darkred">&nbsp Enter email :</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope-o" aria-hidden="true"></i><input type="email" name="email" required>
+<br><br>
+<font size="5" color="darkred">&nbsp Date of Birth :</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i><input type="date" name="dob" required>
+<br><br>
+<input type="radio" class="ppf">male
+<input type="radio" class="ppf">female
+<br><br>
+<center><input type="submit" class="dd"  name="button" ></center>
+</form>
+<div>
+
+
+
+</body>
+
+</html>
+<?php
+$un=$_GET['username'];
+$pw=$_GET['password'];
+$cnpw=$_GET['confpw'];
+$em=$_GET['email'];
+$datob=$_GET['dob'];
+
+$query="insert into personal values('$un','$pw','$cnpw','$em','$datob')";
+
+$data=mysqli_query($conn,$query);
+
+if($data) echo "data inserted";
+else echo "failed to insert";
+?>
